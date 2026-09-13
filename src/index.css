@@ -1,0 +1,589 @@
+@import "tailwindcss";
+
+:root {
+  --iiice-bg: #f4f5f6;
+  --iiice-white: #ffffff;
+  --iiice-border: #e2e8f0;
+  --iiice-title: #1e293b;
+  --iiice-text: #64748b;
+  --iiice-primary: #0f3460;
+  --iiice-accent: #ef4444;
+  --card-bg: #ffffff;
+  --card-name: #334155;
+  --card-border: #f1f5f9;
+  --section-bg: #ffffff;
+  --search-bg: #f1f5f9;
+  --search-input-bg: #ffffff;
+  --subcat-bg: #f8fafc;
+  --subcat-color: #64748b;
+  --subcat-hover-bg: #fef3c7;
+  --subcat-hover-color: #d97706;
+}
+
+.dark-mode {
+  --iiice-bg: #0f172a;
+  --iiice-white: #1e293b;
+  --iiice-border: #334155;
+  --iiice-title: #f1f5f9;
+  --iiice-text: #94a3b8;
+  --iiice-primary: #0f3460;
+  --card-bg: #1e293b;
+  --card-name: #cbd5e1;
+  --card-border: #334155;
+  --section-bg: #1e293b;
+  --search-bg: #1e293b;
+  --search-input-bg: #0f172a;
+  --subcat-bg: #0f172a;
+  --subcat-color: #94a3b8;
+  --subcat-hover-bg: #334155;
+  --subcat-hover-color: #fbbf24;
+}
+
+body {
+  background-color: var(--iiice-bg);
+  color: var(--iiice-title);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+/* Pulse animation for badge */
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.badge-pulse {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* Glow when search box is focused */
+.search-glow:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2), 0 0 20px rgba(37, 99, 235, 0.15);
+}
+
+/* User Request Custom Styles: Subcategories capsule */
+.iiice-subcategories {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid #d1d5db;
+  border-radius: 18px; /* 圆角外框 */
+  background: var(--subcat-bg);
+}
+.dark-mode .iiice-subcategories {
+  border-color: #334155;
+}
+.iiice-subcat-item {
+  padding: 5px 10px;
+  font-size: 13px;
+  color: #64748b;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease; /* 平滑过渡 */
+  user-select: none;
+  white-space: nowrap;
+}
+.iiice-subcat-item:hover {
+  background: #fef3c7;
+  color: #d97706; /* 悬停琥珀色 */
+}
+.dark-mode .iiice-subcat-item:hover {
+  background: #78350f;
+  color: #fef3c7;
+}
+.iiice-subcat-item.active {
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 600; /* 选中绿色实底 */
+}
+
+/* User Request Custom Styles: Angled Badge Sticker at Top-Left */
+.navcat-badge {
+  position: absolute; /* 绝对定位在卡片左上角 */
+  top: -3px;
+  left: -3px;
+  background-color: #ff4444; /* 红色 */
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 4px;
+  transform: rotate(-15deg); /* 旋转 15° 更像贴纸 */
+  z-index: 20;
+  border-radius: 4px;
+  pointer-events: none; /* 不阻挡卡片点击 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+}
+
+/* 绿色 = NEW 标识 */
+.navcat-badge-new {
+  background-color: #4caf50 !important;
+}
+
+/* 蓝色/金色变种 */
+.navcat-badge-gold {
+  background-color: #f59e0b !important;
+}
+
+/* 桌面端显示"推荐"，移动端变"推"（省空间） */
+@media (max-width: 640px) {
+  .badge-full {
+    display: none !important;
+  }
+  .badge-short {
+    display: inline !important;
+  }
+}
+@media (min-width: 641px) {
+  .badge-full {
+    display: inline !important;
+  }
+  .badge-short {
+    display: none !important;
+  }
+}
+
+/* Core Values Click Float Word Animation */
+@keyframes floatWordUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(0.9) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--drift-x, 0px) * 0.3), -30px) scale(1.1) rotate(var(--drift-rotate, 0deg));
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--drift-x, 0px)), -120px) scale(1) rotate(var(--drift-rotate, 0deg));
+  }
+}
+
+.click-float-word {
+  position: absolute;
+  z-index: 9999999;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+  pointer-events: none !important;
+  user-select: none !important;
+  touch-action: none !important;
+  white-space: nowrap;
+  animation: floatWordUp 0.95s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .click-float-word {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+/* Smooth page and grid transitions */
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-content-fade-in {
+  animation: contentFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Skeleton shimmer sweep */
+@keyframes skeletonSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0.7) 25%,
+    rgba(241, 245, 249, 0.95) 37%,
+    rgba(226, 232, 240, 0.7) 63%
+  );
+  background-size: 200% 100%;
+  animation: skeletonSweep 1.4s ease-in-out infinite;
+}
+
+.dark-mode .skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(51, 65, 85, 0.7) 25%,
+    rgba(71, 85, 105, 0.95) 37%,
+    rgba(51, 65, 85, 0.7) 63%
+  );
+  background-size: 200% 100%;
+  animation: skeletonSweep 1.4s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   User Custom Footer, Themes & About Modal Styles
+   ========================================================================== */
+
+:root {
+  --main-color: #536dfe;
+  --main-light: #f1f3ff;
+  --text-main: #222222;
+  --text-normal: #666666;
+  --text-light: #999999;
+  --border-color: #eaeaea;
+  --footer-bg: transparent;
+  --modal-bg: #ffffff;
+}
+
+/* 深色主题 */
+body.theme-dark {
+  --main-color: #8b9aff;
+  --main-light: #272b45;
+  --text-main: #f5f5f5;
+  --text-normal: #c4c4c4;
+  --text-light: #929292;
+  --border-color: #3a3a3a;
+  --footer-bg: transparent;
+  --modal-bg: #202124;
+}
+
+/* 蓝色主题 */
+body.theme-blue {
+  --main-color: #1683e8;
+  --main-light: #eaf5ff;
+}
+
+/* 绿色主题 */
+body.theme-green {
+  --main-color: #20a66a;
+  --main-light: #eafaf2;
+}
+
+/* 粉色主题 */
+body.theme-pink {
+  --main-color: #e85d9e;
+  --main-light: #fff0f7;
+}
+
+.custom-footer {
+  width: 100%;
+  padding: 40px 16px 30px;
+  background-color: var(--footer-bg);
+  box-sizing: border-box;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-typing {
+  min-height: 28px;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--main-color);
+  letter-spacing: 1px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: 300;
+  color: var(--main-color);
+  animation: typingBlink 1s infinite;
+}
+
+@keyframes typingBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.footer-line {
+  width: 48px;
+  height: 2px;
+  margin: 14px auto 18px;
+  background-color: var(--main-color);
+  opacity: 0.35;
+  border-radius: 2px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.footer-links a,
+.footer-links button {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: var(--text-normal);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-links button:hover {
+  color: var(--main-color);
+}
+
+.footer-copyright {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 22px;
+  margin-bottom: 18px;
+}
+
+.footer-theme-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background-color: var(--main-light);
+}
+
+.theme-button {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.theme-button:hover {
+  transform: scale(1.15);
+}
+
+.theme-button.is-active {
+  border-color: #ffffff;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 1px var(--text-main);
+}
+
+.theme-button[data-theme="default"] { background-color: #536dfe; }
+.theme-button[data-theme="dark"] { background-color: #2b2b2b; }
+.theme-button[data-theme="blue"] { background-color: #1683e8; }
+.theme-button[data-theme="green"] { background-color: #20a66a; }
+.theme-button[data-theme="pink"] { background-color: #e85d9e; }
+
+/* 弹窗样式 */
+.about-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.about-modal[hidden] {
+  display: none !important;
+}
+
+.about-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 620px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+}
+
+.about-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.about-close:hover {
+  color: var(--text-main);
+  background-color: var(--main-light);
+}
+
+.modal-line {
+  width: 36px;
+  height: 3px;
+  background-color: var(--main-color);
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+#about-title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.modal-subtitle {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: var(--text-normal);
+  line-height: 20px;
+}
+
+.about-body {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--text-normal);
+}
+
+.about-body h3 {
+  margin: 18px 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.about-body p {
+  margin: 0 0 10px;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+.service-item {
+  background-color: var(--main-light);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.service-item b {
+  display: block;
+  font-size: 14px;
+  color: var(--main-color);
+  margin-bottom: 4px;
+}
+
+.service-item span {
+  display: block;
+  font-size: 12px;
+  color: var(--text-normal);
+  line-height: 18px;
+}
+
+.update-time {
+  margin-top: 18px !important;
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    padding: 22px 16px;
+  }
+}
+
+/* ==========================================================================
+   Netland Marquee Banner Animation
+   ========================================================================== */
+@keyframes netlandMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-netland-marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: netlandMarquee 15s linear infinite;
+}
+
+.animate-netland-marquee:hover {
+  animation-play-state: paused;
+}
+
+
+

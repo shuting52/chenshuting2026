@@ -1,0 +1,6 @@
+{
+  "name": "陈淑婷 · 资源收藏导航",
+  "description": "全中文一站式精选实用资源与网站导航平台，涵盖影视娱乐、在线工具、音乐听歌、小说阅读、游戏资源与装机必备。",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
