@@ -166,7 +166,7 @@ export const Footer: React.FC<FooterProps> = ({
 
   return (
     <>
-      <footer className="custom-footer">
+      <footer className="custom-footer" id="footer">
         <div className="footer-container">
           <div className="footer-typing">
             <span className="typing-text">{displayText}</span>

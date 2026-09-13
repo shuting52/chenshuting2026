@@ -51,7 +51,7 @@ export const ClickEffectManager: React.FC = () => {
         '[role="checkbox"]',
         '[role="switch"]',
         '.iiice-card',
-        '.iiice-subcat-item',
+        // Removed .iiice-subcat-item so clicking it triggers the word effect
         '.modal-content',
         '[data-interactive="true"]'
       ].join(',');

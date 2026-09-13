@@ -12,8 +12,9 @@ import {
 } from 'lucide-react';
 
 export interface BackgroundSettings {
-  type: 'none' | 'preset' | 'camera' | 'upload';
+  type: 'none' | 'preset' | 'camera' | 'upload' | 'theme';
   value: string; // url or data url
+  theme?: 'millennium' | 'new_year_2026' | 'neo_brutalist' | 'neumorphic' | 'glassmorphism' | 'puffy_cute';
   blur: number; // px blur
   opacity: number; // 0 to 1 opacity
 }
@@ -71,9 +72,9 @@ export const CustomBackgroundModal: React.FC<CustomBackgroundModalProps> = ({
   currentSettings,
   onSaveSettings
 }) => {
-  const [activeTab, setActiveTab] = useState<'preset' | 'camera' | 'upload'>('preset');
-  const [selectedPreset, setSelectedPreset] = useState<string>(
-    currentSettings.type === 'preset' ? currentSettings.value : PRESET_BACKGROUNDS[0].url
+  const [activeTab, setActiveTab] = useState<'preset' | 'camera' | 'upload' | 'theme'>('theme');
+  const [selectedTheme, setSelectedTheme] = useState<BackgroundSettings['theme']>(
+    currentSettings.theme || 'millennium'
   );
   const [blur, setBlur] = useState<number>(currentSettings.blur || 0);
   const [opacity, setOpacity] = useState<number>(currentSettings.opacity || 0.85);
@@ -158,7 +159,7 @@ export const CustomBackgroundModal: React.FC<CustomBackgroundModalProps> = ({
     }
   };
 
-  // Handle local image file upload
+  // Handle local image/video file upload
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -180,8 +181,10 @@ export const CustomBackgroundModal: React.FC<CustomBackgroundModalProps> = ({
       settings = { type: 'camera', value: capturedPhoto, blur, opacity };
     } else if (activeTab === 'upload' && uploadedImage) {
       settings = { type: 'upload', value: uploadedImage, blur, opacity };
+    } else if (activeTab === 'theme') {
+      settings = { type: 'theme', value: '', theme: selectedTheme, blur, opacity };
     } else {
-      settings = { type: 'preset', value: selectedPreset, blur, opacity };
+      settings = { type: 'none', value: '', blur, opacity };
     }
     onSaveSettings(settings);
     onClose();
@@ -218,17 +221,17 @@ export const CustomBackgroundModal: React.FC<CustomBackgroundModalProps> = ({
           <button
             type="button"
             onClick={() => {
-              setActiveTab('preset');
+              setActiveTab('theme');
               stopCamera();
             }}
-            className={`px-3.5 py-2 text-xs font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
-              activeTab === 'preset'
+            className={`px-5 py-3 text-sm font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
+              activeTab === 'theme'
                 ? 'border-blue-600 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-slate-800/60'
                 : 'border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
-            <ImageIcon className="w-4 h-4" />
-            <span>精选高清壁纸</span>
+            <Palette className="w-5 h-5" />
+            <span>风格主题切换</span>
           </button>
 
           <button
@@ -237,13 +240,13 @@ export const CustomBackgroundModal: React.FC<CustomBackgroundModalProps> = ({
               setActiveTab('camera');
               if (!isCameraActive && !capturedPhoto) startCamera();
             }}
-            className={`px-3.5 py-2 text-xs font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
+            className={`px-5 py-3 text-sm font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
               activeTab === 'camera'
                 ? 'border-blue-600 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-slate-800/60'
                 : 'border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
-            <Camera className="w-4 h-4" />
+            <Camera className="w-5 h-5" />
             <span>摄像头实时拍照</span>
           </button>
 
@@ -253,46 +256,46 @@ export const CustomBackgroundModal: React.FC<CustomBackgroundModalProps> = ({
               setActiveTab('upload');
               stopCamera();
             }}
-            className={`px-3.5 py-2 text-xs font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
+            className={`px-5 py-3 text-sm font-semibold rounded-t-lg border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
               activeTab === 'upload'
                 ? 'border-blue-600 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-slate-800/60'
                 : 'border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
-            <Sliders className="w-4 h-4" />
+            <Sliders className="w-5 h-5" />
             <span>自定义上传图片</span>
           </button>
         </div>
 
         {/* Modal Content */}
         <div className="p-5 flex-1 overflow-y-auto space-y-4 text-xs text-slate-600 dark:text-slate-300">
-          {/* Preset Tab */}
-          {activeTab === 'preset' && (
+          {/* Theme Tab */}
+          {activeTab === 'theme' && (
             <div>
-              <p className="mb-3 text-slate-500">点击选中任意一款精美风景或自然壁纸：</p>
+              <p className="mb-3 text-slate-500">选择您喜爱的主题风格：</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {PRESET_BACKGROUNDS.map((preset) => (
+                {[
+                  { id: 'millennium', name: '千禧年风格' },
+                  { id: 'new_year_2026', name: '2026新年风格' },
+                  { id: 'neo_brutalist', name: '新粗野风格' },
+                  { id: 'neumorphic', name: '新拟态风格' },
+                  { id: 'glassmorphism', name: '透明磨砂质感风格' },
+                  { id: 'puffy_cute', name: '膨胀可爱风格' },
+                ].map((theme) => (
                   <button
-                    key={preset.id}
+                    key={theme.id}
                     type="button"
-                    onClick={() => setSelectedPreset(preset.url)}
+                    onClick={() => setSelectedTheme(theme.id as BackgroundSettings['theme'])}
                     className={`relative rounded-xl overflow-hidden aspect-video border-2 transition-all cursor-pointer group text-left ${
-                      selectedPreset === preset.url
+                      selectedTheme === theme.id
                         ? 'border-blue-600 ring-2 ring-blue-500/30 scale-102'
                         : 'border-transparent hover:border-slate-300'
                     }`}
                   >
-                    <img
-                      src={preset.thumb}
-                      alt={preset.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2">
-                      <span className="text-white font-medium text-[11px] drop-shadow-sm">
-                        {preset.name}
-                      </span>
+                    <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-500 group-hover:scale-105 transition-transform duration-300">
+                      {theme.name}
                     </div>
-                    {selectedPreset === preset.url && (
+                    {selectedTheme === theme.id && (
                       <div className="absolute top-1.5 right-1.5 w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-md">
                         <Check className="w-3 h-3" />
                       </div>

@@ -4,10 +4,10 @@ import { CATEGORIES_PART2 } from './categoriesPart2';
 import { CATEGORIES_AI_AND_TOOLS } from './categoriesAiAndTools';
 
 export const ALL_CATEGORIES: Category[] = [
-  CATEGORIES_PART1[0], // coop (合作推荐)
   ...CATEGORIES_AI_AND_TOOLS, // 常用AI与大模型, 无限画布与创作, Prompt与Skill社区, 常用工具与魔法网络
   ...CATEGORIES_PART1.slice(1), // video, saving, resource, music
-  ...CATEGORIES_PART2 // novel, game, tool, setup, explore
+  ...CATEGORIES_PART2, // novel, game, tool, setup, explore
+  CATEGORIES_PART1[0] // coop (伙伴推荐)
 ];
 
 export const TOTAL_RESOURCE_COUNT = ALL_CATEGORIES.reduce(

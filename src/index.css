@@ -95,8 +95,8 @@ body {
   border-color: #334155;
 }
 .iiice-subcat-item {
-  padding: 5px 10px;
-  font-size: 13px;
+  padding: 8px 14px;
+  font-size: 14px;
   color: #64748b;
   border-radius: 14px;
   cursor: pointer;
@@ -118,6 +118,16 @@ body {
   font-weight: 600; /* 选中绿色实底 */
 }
 
+/* 修正后的旋转+脉冲动画 */
+@keyframes badgePulseRotate {
+  0%, 100% {
+    transform: rotate(-15deg) scale(1);
+  }
+  50% {
+    transform: rotate(-15deg) scale(1.12);
+  }
+}
+
 /* User Request Custom Styles: Angled Badge Sticker at Top-Left */
 .navcat-badge {
   position: absolute; /* 绝对定位在卡片左上角 */
@@ -128,7 +138,7 @@ body {
   font-size: 10px;
   font-weight: 700;
   padding: 1px 4px;
-  transform: rotate(-15deg); /* 旋转 15° 更像贴纸 */
+  animation: badgePulseRotate 2s ease-in-out infinite; /* 应用合并后的动态效果 */
   z-index: 20;
   border-radius: 4px;
   pointer-events: none; /* 不阻挡卡片点击 */
@@ -583,6 +593,16 @@ body.theme-pink {
 
 .animate-netland-marquee:hover {
   animation-play-state: paused;
+}
+
+/* User-selected elements to hide */
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1),
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1),
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1),
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3),
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div#topbar:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > button:nth-of-type(3),
+div#root:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) {
+  display: none !important;
 }
 
 

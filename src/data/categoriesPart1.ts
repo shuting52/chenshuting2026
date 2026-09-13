@@ -3,7 +3,7 @@ import { Category } from '../types';
 export const CATEGORIES_PART1: Category[] = [
   {
     id: 'coop',
-    name: '合作推荐',
+    name: '伙伴推荐',
     iconName: 'Flame',
     desc: '站长特别精选合作优质资源',
     subcategories: [{ id: '29', name: '推荐' }],
