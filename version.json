@@ -1,6 +1,6 @@
 {
   "versionCode": 20,
   "versionName": "1.6.1",
-  "changelog": "更新内容:\n· 更新弹窗视觉全面升级：全新 3D 立体礼盒、玻璃拟态亚克力卡片与金色质感按钮\n· 新增极光柔光背景、金币彩带与柔光粒子漂浮动效，升级提示更有仪式感\n· 更新内容改为逐条光点展示，版本信息更清晰，按钮反馈更跟手\n· 界面、功能与内容架构保持不变，本次为视觉升级版本",
+  "changelog": "\n🥇新版本1.6.1上线\n⛱️增加了海量Skill，放入AI即可干活\n—-优化了软件Bug\n-海量的Prompt",
   "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.1.apk"
 }
