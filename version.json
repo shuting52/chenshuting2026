@@ -1,6 +1,6 @@
 {
-  "versionCode": 6,
-  "versionName": "1.3.1",
-  "changelog": "淑婷提示：\n1. 全面体检并清理了 11 个已失效、不稳定的站点，访问更清爽\n2. 伙伴推荐与影视娱乐分类去重优化，资源更精准\n3. 本程序所有资源均来源于网络，如有侵权请联系作者删除\n4. 本应用是免费工具，发现收费的请直接举报~",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.3.1.apk"
+  "versionCode": 7,
+  "versionName": "1.4.0",
+  "changelog": "淑婷提示：\n1. 首页快捷入口恢复横向排列，常用站点一眼直达\n2. 分类版块全面图标化，新增「新」「热」动态标签标识\n3. 软件下载改为作者上传的安装包，点击直接下载，不再跳转应用市场\n4. 全新开屏动效（极光 + 星尘 + 光环 + 流光进度），播完自动进入作者 QQ\n5. 新增 vivo 视效系列 5 款主题：原境 / 夜幕 / 青岚 / 霞光 / 星尘\n6. 点击漂浮文字不再重样，新增水波、粒子爆散、星芒与环境微光特效\n7. 关于本应用的「软件内容」按实际分类重写，与站内数据实时对应\n8. 本程序所有资源均来源于网络，如有侵权请联系作者删除",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.4.0.apk"
 }
