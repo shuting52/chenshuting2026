@@ -11,7 +11,7 @@ AIGC:
 
 # 陈淑婷 · 资源收藏导航 — 更新检测仓库
 
-App 内置的「检查更新」会读取本仓库根目录的 `version.json`（多源容错：raw.githubusercontent / jsdelivr / ghproxy），
+App 内置的「检查更新」会读取本仓库根目录的 `version.json`（多源容错：gh-proxy / ghproxy.net / GitHub API / raw 直连；刻意不用 CDN，避免缓存旧清单导致漏检），
 版本号高于已安装版本时自动弹出卡通更新弹窗，点「立即更新」跳转下载。
 
 ## 一、仓库需上传的文件（全部放根目录、main 分支）
@@ -19,7 +19,7 @@ App 内置的「检查更新」会读取本仓库根目录的 `version.json`（�
 | 文件 | 说明 |
 |---|---|
 | `version.json` | 版本清单，App 检测的依据 |
-| `chenshuting-v1.3.0.apk` | 安装包本体（文件名保持英文，直链最稳） |
+| `chenshuting-1.3.4.apk` | 安装包本体（文件名保持英文且带版本号，避免 CDN 命中旧包） |
 
 ## 二、两步让更新检测生效
 
