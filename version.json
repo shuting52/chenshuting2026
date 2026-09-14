@@ -1,6 +1,6 @@
 {
-  "versionCode": 18,
-  "versionName": "1.5.0",
-  "changelog": "更新内容:\n· 安全加固升级：全量代码深度混淆压缩，敏感配置与更新地址全部加密存放，反编译后无法直接阅读与定位关键逻辑\n· 防篡改保护：内置发布签名指纹校验，安装包一旦被二次打包或重签名将无法启动\n· 反调试防护：检测到调试环境自动停止运行，防止运行期被动态篡改\n· 功能与体验与此前版本完全一致，本次为安全加固版本，建议更新",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.5.0.apk"
+  "versionCode": 19,
+  "versionName": "1.6.0",
+  "changelog": "更新内容:\n· 内容资源加密：分类 / 提示词 / Skill / 软件清单，以及配套图片与压缩包，整体封装进加密容器，用 MT 管理器打开安装包已看不到任何资源正文\n· 跑马灯云端实时同步：仓库里改一句公告，App 端数分钟内自动生效，无需重新发版\n· 内容中心远端下发：软件 / 提示词 / Skill 的增删改可由仓库统一推送，已装用户不必重新下载安装包\n· 原有的界面、动效与功能保持不变，本次为内容架构升级版本",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.0.apk"
 }
