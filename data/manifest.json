@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "updated": "2026-09-15",
   "note": "由淑婷控制台自动维护：公告 announcements.json 走独立实时通道，不登记在本清单",
   "files": [
@@ -7,6 +7,11 @@
       "path": "data\/prompts\/p1789458874353.png",
       "sha256": "83431974c9af2cd8941df655d900dbecc7cf45cf550836bdc320bfd7017b82aa",
       "size": 460986
+    },
+    {
+      "path": "data\/prompts.json",
+      "sha256": "35d1419ad0234b18a01b059ef8f5c11553a4b68996287eb3a2d9226e78345c39",
+      "size": 2162
     }
   ]
 }
