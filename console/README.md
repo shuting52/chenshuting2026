@@ -4,16 +4,36 @@
 
 ## 文件
 
-| 文件 | 说明 |
-|---|---|
-| `chenshuting-console-v1.0.0.apk` | 控制台安装包（866 KB，已签名，直装） |
-| `chenshuting-console-src-v1.0.0.zip` | 完整源码包（13 个 Java 源文件 + 资源 + 无 Gradle 构建脚本） |
+| 文件 | 大小 | 说明 |
+|---|---|---|
+| `chenshuting-console-v1.1.1.apk` | 931,566 B | 控制台安装包（v1.1.1，已签名，直装，**不含任何令牌**） |
+| `chenshuting-console-src-v1.1.1.zip` | 892,069 B | 源码包（39 个源文件，已脱敏：无签名私钥、无令牌） |
+| `chenshuting-console-v1.1.0.apk` | 919,278 B | 旧版安装包（v1.1.0，干净版） |
+| `chenshuting-console-src-v1.1.0.zip` | 885,193 B | 旧版源码包 |
+| `chenshuting-console-v1.0.0.apk` | 886,510 B | 首个公开版 |
+| `chenshuting-console-src-v1.0.0.zip` | 862,950 B | 首个公开版源码包 |
 
-- APK SHA-256：`9f17e28ec9d744edfb91539c6645e787e12b80c519b8316453e03f99c8ccca61`
-- 源码包 SHA-256：`bac25d8dc6eb318c559483e0c1cea998994d60bd0fff6b2ef30535c6c01309fe`
+- v1.1.1 APK SHA-256：`cbebdec4176244b926e19f5f524109bcb4274c4c0526f0d0ef0296a02b6c1ab5`
+- v1.1.1 源码包 SHA-256：`c23f17fdc6f314dd449dbf86ba1ea12d1801d573f5b182f27a71202d84b6871a`
+- v1.0.0 APK SHA-256：`9f17e28ec9d744edfb91539c6645e787e12b80c519b8316453e03f99c8ccca61`
 - 签名证书 SHA-256（与工具箱同一证书，可覆盖升级）：`A5:0D:61:C5:DF:1C:8F:1C:D5:FA:38:B2:93:4A:38:14:0C:16:60:C3:08:EA:35:B2:AA:71:D2:FE:D3:6B:C2:79`
 
-## 功能
+## v1.1.1 更新
+
+1. **UI 换「少女拟态」Soft-UI 内核**：奶油粉底（`#FDF3F9` / `#F4E9FB`）+ 玫瑰主色（`#E86BA8` / `#F79BC6`），凸起 / 凹槽拟态控件、页面渐变背景、写实投影；页签选中态、根布局同步换肤，徽标升 v1.1.1。
+2. **弹窗编辑器加 JSON 代码通道**：新增「编辑 JSON 代码」（单场景 / 整套切换）、「上传 JSON 文件」、「复制当前配置」、「从剪贴板导入」，套用前统一 `applyJson` 校验。
+3. **令牌体检**：本地形状预检（空格换行、`ghp_` 位数、前缀合法性）+ 联网核验 + `repo` 权限检查；状态栏显示 mask 与位数。
+4. **错误中文化**：401 / 403 / 404 / 409 / 422 全部翻成中文；401 明确提示「令牌无效或已被吊销（曾打进公开 APK 会被 GitHub 密钥扫描自动吊销）」。
+5. 版本号对齐：`versionCode 3` / `versionName 1.1.1`，`Repo.APP_VER` 同步 1.1.1。
+
+## v1.1.0 功能
+
+1. 图标三态：内置图标 / 填网址自动识别站点图标 / 上传本地图片
+2. 弹窗样式编辑器：通用 / 更新 / 置顶 / 我的 四个场景，实时预览，发布即生效（`data/dialogs.json`）
+3. 全功能页「怎么用」分步教程
+4. 图标直链带时间戳破 CDN 缓存
+
+## v1.0.0 功能
 
 | 页签 | 能力 |
 |---|---|
@@ -32,16 +52,21 @@
 
 Token 仅保存在手机本地（SharedPreferences），不会上传到任何服务器。
 
+## 令牌与分发包安全约定（重要）
+
+- 公开分发的 APK **必须不内置真实令牌**：令牌随 APK 进公开仓库会被 GitHub 密钥扫描自动吊销（表现为 `HTTP 401 Bad credentials`）。本目录 v1.1.0 / v1.1.1 均为干净包，装好后在 App「设置」页手动粘贴令牌即可。
+- 源码包中 `Prefs.java` 保留 `__TOKEN__` 源码占位；本地构建脚本可从 `$TEMP/.tok_use` 注入令牌，构建结束自动还原。此机制仅用于本机安装包，**切勿随公开包发布**。
+- 源码包**不含签名私钥**（`keystore/*.jks`），`build.sh` 中签名口令改为读环境变量。
+
 ## 从源码重建
 
 ```bash
 export TOOLS_ROOT=/path/to/tools   # 需含 jdk-17、android-sdk/build-tools/34.0.0、cmdline-tools/latest/lib/r8.jar
-export KS_PATH=/path/to/chenshuting-release.jks
+export KS_PATH=/path/to/your-release.jks
 export KS_PASS=********
-bash build.sh
+export KS_ALIAS=chenshuting
+bash build.sh                      # 产物：output/淑婷控制台-v1.1.1.apk
 ```
-
-源码包内**不含签名证书**（keystore 含私钥，不入仓库）。
 
 ## 注意
 
