@@ -1,6 +1,6 @@
 {
-  "versionCode": 23,
-  "versionName": "1.6.4",
-  "changelog": "更新内容:\n· 弹窗样式支持云端换肤：控制台可配置「通用 / 更新 / 置顶 / 我的」四类弹窗的底色、圆角、描边、标题与正文配色、按钮文案与配色、金龙 / 极光 / 装饰开关、压暗程度与入场动画，改完发布即生效，无需更新安装包\n· 图标支持三种来源：控制台内置图标、填网址自动识别站点图标、上传本地图片自定义\n· 更新弹窗接入同一套皮肤：标题、正文、按钮、底衬与圆角、描边、压暗、入场动画均可配置\n· 控制台各功能页新增「怎么用」分步教程，默认收起，点击展开\n· 控制台版本升至 v1.1.0（版本号 1.1.0 / 版本码 2）",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.4.apk"
+  "versionCode": 24,
+  "versionName": "1.6.5",
+  "changelog": "叮咚～检测到新版本。请下载最新版本体验",
+  "apkUrl": "https:\/\/cdn.jsdelivr.net\/gh\/shuting52\/chenshuting2026@main\/chenshuting-v1.6.5.apk"
 }
