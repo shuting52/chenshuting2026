@@ -1,8 +1,8 @@
 {
   "enabled": true,
   "welcome": "本软件基于网络搜集，如有侵权。请及时告知，作者会第一时间进行下架处理～软件内容多，请大家自行挖掘",
-  "loop24h": false,
-  "showClock": false,
+  "loop24h": true,
+  "showClock": true,
   "clockStyle": 1,
   "marqueeFx": true,
   "marqueeSpeed": 2,
