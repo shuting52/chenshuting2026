@@ -1,6 +1,6 @@
 {
-  "versionCode": 20,
-  "versionName": "1.6.1",
-  "changelog": "\n为了优化用户体验,我们已经把办公室唯一一个八块腹肌的产品经理祭天了,如果这次更新你还不满意,下一个可能是 CEO\n为了这次更新,老板连夜跑了\n本次集齐程序猿、设计狮、产品攻城狮,历经 5+2、白+黑的精『更』新作,直至深『更』夜半,只为给你更好的体验\n我已经是个成熟没有 bug 的宝贝了,快来蹂躏我吧~",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.1.apk"
+  "versionCode": 21,
+  "versionName": "1.6.2",
+  "changelog": "更新内容:\n· 全部弹窗统一升级为玻璃拟态视觉：磨砂玻璃卡片、亮边高光与悬浮投影，主题 / 字体 / 关于 / 时间等弹窗观感完全一致\n· 弹窗背后新增极光柔光呼吸背景，金币彩带与柔光粒子缓缓漂浮，层级与聚焦感更强\n· 弹窗按钮统一为金色渐变主按钮 + 玻璃次级按钮，按压回弹与点击反馈更跟手\n· 金色徽标、渐变标题与分隔线细节重绘，深浅内容均可清晰阅读，长弹窗高度比例保持一致\n· 功能、内容与页面结构保持不变，本次为全局视觉统一升级",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.2.apk"
 }
