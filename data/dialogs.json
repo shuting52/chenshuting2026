@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15",
+  "updatedAt": "2026-09-16",
   "scenes": {
     "common": {
       "widthRatio": 0.9,
@@ -12,7 +12,7 @@
       "strokeColor": "#66E0A85A",
       "titleColor": "#F5EDE3",
       "titleSizeSp": 17,
-      "bodyColor": "#A6978C",
+      "bodyColor": "#00000000",
       "bodySizeSp": 12.5,
       "okText": "我知道了",
       "btnPrimaryColor": "#F5C044",
