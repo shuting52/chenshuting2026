@@ -1,11 +1,6 @@
 {
-  "version": 1,
-  "updated": "2026-09-14",
-  "files": [
-    {
-      "path": "data/announcements.json",
-      "size": 383,
-      "sha256": "221b62b648aebe06d6fb778fe52397491e61d6b0e81e35e48531e16d647d49b7"
-    }
-  ]
+  "version": 2,
+  "updated": "2026-09-15",
+  "note": "公告 announcements.json 已改走独立实时通道，不再登记在本清单",
+  "files": []
 }
