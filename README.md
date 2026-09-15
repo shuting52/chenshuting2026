@@ -18,7 +18,7 @@ App 的「检查更新」读取根目录 `version.json`（多源容错：gh-prox
 | 路径 | 说明 |
 |---|---|
 | `version.json` | 版本清单，App 更新检测依据 |
-| `chenshuting-v1.6.1.apk` | 当前线上安装包，**仓库只保留最新一个** |
+| `chenshuting-v1.6.2.apk` | 当前线上安装包，**仓库只保留最新一个** |
 | `data/manifest.json` | 远端内容清单（`version` + `files[path,size,sha256]`） |
 | `data/announcements.json` | 首页跑马灯文案（`enabled` / `welcome` / `items`） |
 
@@ -26,10 +26,10 @@ App 的「检查更新」读取根目录 `version.json`（多源容错：gh-prox
 
 ```json
 {
-  "versionCode": 20,
-  "versionName": "1.6.1",
-  "changelog": "更新内容...（\\n 换行，弹窗展示）",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.1.apk"
+  "versionCode": 21,
+  "versionName": "1.6.2",
+  "changelog": "更新内容...（换行用 \\n，弹窗展示）",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.2.apk"
 }
 ```
 
@@ -37,14 +37,14 @@ App 的「检查更新」读取根目录 `version.json`（多源容错：gh-prox
 
 | 写法 | 地址格式 |
 |---|---|
-| jsDelivr（默认） | `https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.1.apk` |
-| GitHub 原始地址 | `https://raw.githubusercontent.com/shuting52/chenshuting2026/main/chenshuting-v1.6.1.apk` |
-| ghproxy 代理 | `https://ghproxy.net/https://raw.githubusercontent.com/shuting52/chenshuting2026/main/chenshuting-v1.6.1.apk` |
+| jsDelivr（默认） | `https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.2.apk` |
+| GitHub 原始地址 | `https://raw.githubusercontent.com/shuting52/chenshuting2026/main/chenshuting-v1.6.2.apk` |
+| ghproxy 代理 | `https://ghproxy.net/https://raw.githubusercontent.com/shuting52/chenshuting2026/main/chenshuting-v1.6.2.apk` |
 
 ## 四、发版流程（固定四步，缺一不可）
 
 1. 版本号 +1：`AndroidManifest.xml` 的 `versionCode/versionName` 与 `build.sh` 的 `--version-code/--version-name` 必须一致。
-2. 重新出包，新 APK 以英文名上传到根目录（如 `chenshuting-v1.6.1.apk`）。
+2. 重新出包，新 APK 以英文名上传到根目录（如 `chenshuting-v1.6.2.apk`）。
 3. **删除仓库中除最新版以外的全部旧 APK**：仓库只保留当前线上包，避免体积膨胀，也避免 CDN 误命中历史包。
 4. 更新 `version.json`（`versionCode / versionName / changelog / apkUrl`），并同步更新本 README 的「当前版本」与文件表。
 
@@ -58,9 +58,10 @@ App 的「检查更新」读取根目录 `version.json`（多源容错：gh-prox
 
 ## 六、当前版本
 
-- 版本：**v1.6.1（versionCode 20）**
-- 线上包：`chenshuting-v1.6.1.apk`，8,623,915 字节，sha256 `b5cb1f432b8f239e34e279d822cfd4c6f9036df81c39f25df539c36b379bbaf4`
+- 版本：**v1.6.2（versionCode 21）**
+- 线上包：`chenshuting-v1.6.2.apk`，8,628,011 字节，sha256 `2ff43079474b1c6687e3ee3d0f370116a639617aea28592e7825aebe6318bd26`
+- 签名：`a50d61c5df1c8f1cd5fa38b2934a38140c1660c308ea35b2aa71d2fed36bc279`（与历史版本一致，可直接覆盖安装）
 - 资源已整体打包为加密容器 `assets/data.pkg`，安装包内不暴露分类 / 提示词 / Skill 资源正文
-- v1.6.1 视觉升级：更新弹窗改为 3D 立体礼盒 + 玻璃拟态卡片 + 极光柔光 + 金币彩带动效，金色质感按钮
+- v1.6.2 视觉统一：**全部弹窗**统一为玻璃拟态样式 —— 磨砂玻璃卡片 + 亮边高光 + 悬浮投影 + 极光柔光背板 + 金币彩带 / 柔光粒子漂浮 + 金色渐变 CTA 按钮（更新弹窗保持深色红金豪华版 3D 礼盒视觉）
 
 *（内容由AI生成，仅供参考）*
