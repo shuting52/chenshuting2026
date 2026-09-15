@@ -1,6 +1,7 @@
 {
   "versionCode": 24,
   "versionName": "1.6.5",
-  "changelog": "叮咚～检测到新版本。请下载最新版本体验",
-  "apkUrl": "https:\/\/cdn.jsdelivr.net\/gh\/shuting52\/chenshuting2026@main\/chenshuting-v1.6.5.apk"
+  "changelog": "叮咚～陈淑婷工具箱 1.6.5 上线啦\n· 更新 / 置顶 / 主题切换 / 检测更新四类弹窗统一改为手绘边框横向卡片\n· 「我的」新增实用工具——生肖属相速查：填年份或年龄，秒出属相 / 干支 / 地支\n· 首页新增官方网站入口，网址由控制台在线配置\n· IP 定位改为多源并发「赛马」，冷启动先出缓存，定位明显更快\n· 置顶弹窗文案支持控制台在线编辑，1 分钟内自动同步，改文案不用发版",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.5.apk",
+  "apkUrlRaw": "https://raw.githubusercontent.com/shuting52/chenshuting2026/main/chenshuting-v1.6.5.apk"
 }
