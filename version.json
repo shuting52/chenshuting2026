@@ -1,6 +1,6 @@
 {
-  "versionCode": 21,
-  "versionName": "1.6.2",
-  "changelog": "更新内容:\n· 全部弹窗统一升级为玻璃拟态视觉：磨砂玻璃卡片、亮边高光与悬浮投影，主题 / 字体 / 关于 / 时间等弹窗观感完全一致\n· 弹窗背后新增极光柔光呼吸背景，金币彩带与柔光粒子缓缓漂浮，层级与聚焦感更强\n· 弹窗按钮统一为金色渐变主按钮 + 玻璃次级按钮，按压回弹与点击反馈更跟手\n· 金色徽标、渐变标题与分隔线细节重绘，深浅内容均可清晰阅读，长弹窗高度比例保持一致\n· 功能、内容与页面结构保持不变，本次为全局视觉统一升级",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.2.apk"
+  "versionCode": 22,
+  "versionName": "1.6.3",
+  "changelog": "更新内容:\n· 修复部分机型更新弹窗底部按钮显示不全的问题，「立即更新」按钮现已始终完整可见\n· 更新弹窗内容区支持内部滚动，更新条目再多也不会把按钮顶出屏幕\n· 首页跑马灯公告改为独立实时同步：仓库改一句公告，App 端约 1 分钟内自动生效\n· 修复公告改动后 App 端长时间不刷新的问题，公告与其它内容同步互不干扰",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.3.apk"
 }
