@@ -156,13 +156,23 @@ export const TopBar: React.FC<TopBarProps> = ({
           </button>
 
           <span className="w-px h-3 bg-white/30 hidden sm:inline-block" />
-          <span className="hidden sm:inline-block font-mono text-[11px] text-slate-300">
-            {dateStr}
-          </span>
-          <span className="w-px h-3 bg-white/30 hidden sm:inline-block" />
-          <span className="hidden sm:inline-block text-[11px] text-slate-300">
-            {weekdayStr}
-          </span>
+          {/* 时间 + 星期，下方为官方网站（交流群）链接 */}
+          <div className="hidden sm:flex flex-col items-end gap-0.5 shrink-0 leading-tight">
+            <div className="flex items-center gap-1.5">
+              <span className="font-mono text-[11px] text-slate-300">{dateStr}</span>
+              <span className="w-px h-3 bg-white/30" />
+              <span className="text-[11px] text-slate-300">{weekdayStr}</span>
+            </div>
+            <a
+              href="https://qm.qq.com/q/mMHT4dpjRm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] text-amber-300 hover:text-amber-200 underline underline-offset-2 whitespace-nowrap transition-colors"
+              title="点击链接加入群聊【白嫖圣手:懒得找官群】"
+            >
+              官方网站 · 加入群聊
+            </a>
+          </div>
         </div>
       </div>
     </div>

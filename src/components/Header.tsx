@@ -200,34 +200,16 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="w-full bg-[var(--iiice-white)] border-b border-slate-200/80 dark:border-slate-800 transition-colors">
-      <div className="max-w-[1320px] min-h-[105px] mx-auto px-3 py-3 flex items-center justify-between gap-4 flex-wrap">
-        {/* Brand */}
-        <div className="flex items-center gap-3 min-w-[240px]">
+      <div className="max-w-[1320px] min-h-[72px] mx-auto px-3 py-2 flex items-center justify-between gap-3 flex-wrap">
+        {/* Brand Logo（已删除顶部"陈淑婷工具箱"文字，仅保留图标，为快捷入口腾出空间） */}
+        <div className="flex items-center shrink-0">
           <a
             href="/"
-            className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 bg-gradient-to-br from-[#0f3460] to-[#2563eb] text-white text-2xl font-bold tracking-wider shadow-lg shadow-blue-900/20 hover:scale-105 hover:shadow-xl transition-all cursor-pointer"
+            className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 bg-gradient-to-br from-[#0f3460] to-[#2563eb] text-white text-base font-bold tracking-wider shadow-lg shadow-blue-900/20 hover:scale-105 hover:shadow-xl transition-all cursor-pointer"
             title="陈淑婷 · 资源收藏导航"
           >
             陈淑婷
           </a>
-          <div className="leading-tight">
-            <h1 className="text-xl font-bold text-[var(--iiice-title)] flex items-center gap-1.5">
-              <a href="/" className="hover:text-blue-600 transition-colors">陈淑婷</a>
-              <span className="text-xs font-normal px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900">
-                导航站
-              </span>
-            </h1>
-            
-            {/* Marquee Banner for 白嫖怪的互联网净土 */}
-            <div className="relative overflow-hidden w-44 sm:w-52 h-5 mt-1 rounded-md bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/50 flex items-center px-1">
-              <div className="animate-netland-marquee flex items-center gap-4 text-[11px] font-semibold text-amber-700 dark:text-amber-300">
-                <span>✨ 白嫖怪的互联网净土 · 资源免费下载 ✨</span>
-                <span>✨ 白嫖怪的互联网净土 · 资源免费下载 ✨</span>
-              </div>
-            </div>
-
-            <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">站内所有收集的资源都能免费下载 ({totalCardsCount}+精选)</p>
-          </div>
         </div>
 
         {/* Search Engine & In-site Search Bar */}

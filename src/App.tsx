@@ -20,6 +20,7 @@ import { ResourceSkeletonGrid } from './components/ResourceSkeletonGrid';
 import { BatchActionToolbar } from './components/BatchActionToolbar';
 import { DataBackupModal } from './components/DataBackupModal';
 import { SearchX } from 'lucide-react';
+import { SplashScreen } from './components/SplashScreen';
 
 export default function App() {
   // Dark mode
@@ -388,6 +389,9 @@ export default function App() {
           : undefined
       }
     >
+      {/* 开屏界面（背景 / 文字 / 动效，配置来自控制台 data/config.json 的 splash 对象） */}
+      <SplashScreen />
+
       {/* Background Blur Overlay for readable text */}
       {hasCustomBg && (
         <div
