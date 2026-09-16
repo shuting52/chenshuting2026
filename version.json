@@ -1,7 +1,7 @@
 {
-  "versionCode": 24,
-  "versionName": "1.6.5",
-  "changelog": "叮咚～陈淑婷工具箱 1.6.5 上线啦\n· 更新 / 置顶 / 主题切换 / 检测更新四类弹窗统一改为手绘边框横向卡片\n· 「我的」新增实用工具——生肖属相速查：填年份或年龄，秒出属相 / 干支 / 地支\n· 首页新增官方网站入口，网址由控制台在线配置\n· IP 定位改为多源并发「赛马」，冷启动先出缓存，定位明显更快\n· 置顶弹窗文案支持控制台在线编辑，1 分钟内自动同步，改文案不用发版",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.5.apk",
-  "apkUrlRaw": "https://raw.githubusercontent.com/shuting52/chenshuting2026/main/chenshuting-v1.6.5.apk"
+  "versionCode": 25,
+  "versionName": "1.6.6",
+  "changelog": "叮咚～陈淑婷工具箱 1.6.6 上线啦\n· 顶部全新改版：删除品牌标题、快捷入口上移、搜索移入首页顶部，官网群链接移至时间下方，布局更紧凑不重叠\n· 新增开屏界面：背景 / 文字 / 动效自由配置（支持 JSON / CSS 自定义），由控制台在线下发\n· 控制台全新新拟态主题：粉色圆角卡片全局统一，系统弹窗 / 开关 / 滑块全部美化\n· 弹窗 CSS 编辑器优化：校验与应用按钮固定可见，新增括号引号配对校验\n· 移除置顶弹窗，控制台新增开屏管理，随时增删背景 / 文字 / 动效",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/shuting52/chenshuting2026@main/chenshuting-v1.6.6.apk",
+  "apkUrlRaw": "https://raw.githubusercontent.com/shuting52/chenshuting2026/main/chenshuting-v1.6.6.apk"
 }
